@@ -23,9 +23,9 @@ fetch('https://api.tvmaze.com/shows')
 
 const createElm = (show) => {
     document.getElementById('content').innerHTML += `
-    <div class="grid-container">
+    <div class="wrapper">
     <img src="${show.image.original}">
-    <h1>${show.name}</h1>
+    <h2>${show.name}</h2>
     </div>
     `
 }
