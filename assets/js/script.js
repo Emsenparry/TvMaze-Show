@@ -6,6 +6,7 @@ fetch('https://api.tvmaze.com/shows')
     return response.json();
 })
 .then((shows) => {
+    console.log(shows);
     ApiData = shows.slice(0, 12)
     
 })
@@ -22,8 +23,10 @@ fetch('https://api.tvmaze.com/shows')
 
 const createElm = (show) => {
     document.getElementById('content').innerHTML += `
+    <div class="grid-container">
+    <img src="${show.image.original}">
     <h1>${show.name}</h1>
-    
+    </div>
     `
 }
 
