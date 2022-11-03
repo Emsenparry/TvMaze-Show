@@ -7,8 +7,7 @@ fetch('https://api.tvmaze.com/shows') //Fetcher vores API
 })
 .then((shows) => {
     console.log(shows); //Viser arrayet i vores console
-    ApiData = shows.slice(0, 12) //Vi slicer vores array til 12 i BROWSEREN da der er 240 shows i vores array
-    
+    ApiData = shows.slice(0, 12) //Vi slicer vores array til 12 i BROWSEREN da der er 240 shows i vores array 
 })
 .catch((error) => {
     console.error(error); //Hvis vores promise fejler, så catcher den en error
@@ -16,8 +15,7 @@ fetch('https://api.tvmaze.com/shows') //Fetcher vores API
 .finally(() => { //Går ned til finally hvis der ikke er en error
     for(let i = 0; i < ApiData.length; i++){ //For loop
         let show = ApiData[i];
-        createElm(show);
-        
+        createElm(show);    
     }
 })
 
@@ -43,8 +41,8 @@ const createElm = (show) => { //Vi skaber innerhtml inde i vores sektion som hed
             </div>
         </div>
     `, "text/html");
-    const card = tempDocument.body.children[0]; // 
-    const modal = tempDocument.body.children[1]; //
+    const card = tempDocument.body.children[0]; 
+    const modal = tempDocument.body.children[1]; 
     const trigger = card.querySelector(".trigger");
     const closeButton = modal.querySelector(".close-button");
 
@@ -58,9 +56,9 @@ const createElm = (show) => { //Vi skaber innerhtml inde i vores sektion som hed
         }
     }
 
-    trigger.addEventListener("click", toggleModal);
-    closeButton.addEventListener("click", toggleModal);
-    window.addEventListener("click", windowOnClick);
+    trigger.addEventListener("click", toggleModal); //Trigger viser modalen når billedet bliver kliiket på
+    closeButton.addEventListener("click", toggleModal); //Lukker modalet
+    window.addEventListener("click", windowOnClick); //Klikker man på baggrunden, så lukker modalet også
 
     const content = document.getElementById('content');
     content.appendChild(card);
