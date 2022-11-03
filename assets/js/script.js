@@ -6,7 +6,7 @@ fetch('https://api.tvmaze.com/shows')
     return response.json();
 })
 .then((shows) => {
-    console.log(shows);
+    // console.log(shows);
     ApiData = shows.slice(0, 12)
     
 })
@@ -28,18 +28,36 @@ const createElm = (show) => {
     <h2>${show.name}</h2>
     </div>
 
-    <div>
-        <figure>
-            <img src="${show.image.original}">
-            <figcaption>
-                <h2>${show.name}</h2>
-                <p>${show.genres}</p>
-            </figcaption>
-        </figure>
+    <div class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <figure class="figure-main">
+        <img class="trigger" src="${show.image.original}">
+        <figcaption>
+        <h2>${show.name}</h2>
+        <h3>${show.genres}</h3> 
         <p>${show.summary}</p>
         <p>${show.rating}</p>
+        </figcaption>
+        </figure>
     </div>
     `
 };
 
+const modal = document.querySelector(".modal");
+const trigger = document.querySelector(".trigger");
+const closeButton = document.querySelector(".close-button");
 
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+}
+
+function windowOnClick(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
+}
+
+trigger.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
