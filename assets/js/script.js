@@ -17,38 +17,40 @@ fetch('https://api.tvmaze.com/shows') //Fetcher vores API
     for(let i = 0; i < ApiData.length; i++){ //For loop
         let show = ApiData[i];
         createElm(show);
+        
     }
 })
 
-
 const createElm = (show) => { //Vi skaber innerhtml inde i vores sektion som hedder 'Content'.
-    document.getElementById('content').innerHTML += `
-    <div class="wrapper">
-    <img src="${show.image.original}">
-    <h2>${show.name}</h2>
-    </div>
+    const tempDocument = new DOMParser().parseFromString(`
+        <div class="wrapper">
+            <img class="trigger" src="${show.image.original}">
+            <h2>${show.name}</h2>
+        </div>
 
-    <div class="modal">
-    <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <figure class="figure-main">
-        <img class="trigger" src="${show.image.original}">
-        <figcaption>
-        <h2>${show.name}</h2>
-        <h3>${show.genres}</h3> 
-        <p>${show.summary}</p>
-        <p>${show.rating.average}</p>
-        </figcaption>
-        </figure>
-    </div>
-    `
-    const modal = document.querySelector(".modal");
-    const trigger = document.getElementsByClassName(".trigger");
-    const closeButton = document.querySelector(".close-button");
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <figure class="figure-main">
+                <img src="${show.image.original}">
+                <figcaption>
+                <h2>${show.name}</h2>
+                <h3>${show.genres}</h3> 
+                <p>${show.summary}</p>
+                <p>${show.rating.average}</p>
+                </figcaption>
+                </figure>
+            </div>
+        </div>
+    `, "text/html");
+    const card = tempDocument.body.children[0]; // 
+    const modal = tempDocument.body.children[1]; //
+    const trigger = card.querySelector(".trigger");
+    const closeButton = modal.querySelector(".close-button");
 
     function toggleModal() {
         modal.classList.toggle("show-modal");
-        }
+    }
     
     function windowOnClick(event) {
         if (event.target === modal) {
@@ -60,8 +62,10 @@ const createElm = (show) => { //Vi skaber innerhtml inde i vores sektion som hed
     closeButton.addEventListener("click", toggleModal);
     window.addEventListener("click", windowOnClick);
 
+    const content = document.getElementById('content');
+    content.appendChild(card);
+    content.appendChild(modal);
 };
-
 
 
 
