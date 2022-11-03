@@ -37,20 +37,20 @@ const createElm = (show) => {
         <h2>${show.name}</h2>
         <h3>${show.genres}</h3> 
         <p>${show.summary}</p>
-        <p>${show.rating}</p>
+        <p>${show.rating.average}</p>
         </figcaption>
         </figure>
     </div>
     `
-};
+    const modal = document.querySelector(".modal");
+    const trigger = document.getElementsByClassName(".trigger");
+    const closeButton = document.querySelector(".close-button");
 
-const modal = document.querySelector(".modal");
-const trigger = document.querySelector(".trigger");
-const closeButton = document.querySelector(".close-button");
+};
 
 function toggleModal() {
     modal.classList.toggle("show-modal");
-}
+    }
 
 function windowOnClick(event) {
     if (event.target === modal) {
@@ -61,3 +61,4 @@ function windowOnClick(event) {
 trigger.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
+
