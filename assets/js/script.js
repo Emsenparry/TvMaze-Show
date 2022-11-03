@@ -27,6 +27,19 @@ const createElm = (show) => {
     <img src="${show.image.original}">
     <h2>${show.name}</h2>
     </div>
+
+    <div>
+        <figure>
+            <img src="${show.image.original}">
+            <figcaption>
+                <h2>${show.name}</h2>
+                <p>${show.genres}</p>
+            </figcaption>
+        </figure>
+        <p>${show.summary}</p>
+        <p>${show.rating}</p>
+    </div>
     `
-}
+};
+
 
