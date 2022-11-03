@@ -1,27 +1,27 @@
-let ApiData = [];
+let ApiData = []; //Let variable med et Empty array
 
-fetch('https://api.tvmaze.com/shows')
+fetch('https://api.tvmaze.com/shows') //Fetcher vores API 
 
 .then((response) => {
-    return response.json();
+    return response.json(); //Retunere vores response som et json format
 })
 .then((shows) => {
-    // console.log(shows);
-    ApiData = shows.slice(0, 12)
+    console.log(shows); //Viser arrayet i vores console
+    ApiData = shows.slice(0, 12) //Vi slicer vores array til 12 i BROWSEREN da der er 240 shows i vores array
     
 })
 .catch((error) => {
-    console.error(error);
+    console.error(error); //Hvis vores promise fejler, så catcher den en error
 })
-.finally(() => {
-    for(let i = 0; i < ApiData.length; i++){
+.finally(() => { //Går ned til finally hvis der ikke er en error
+    for(let i = 0; i < ApiData.length; i++){ //For loop
         let show = ApiData[i];
         createElm(show);
     }
 })
 
 
-const createElm = (show) => {
+const createElm = (show) => { //Vi skaber innerhtml inde i vores sektion som hedder 'Content'.
     document.getElementById('content').innerHTML += `
     <div class="wrapper">
     <img src="${show.image.original}">
@@ -46,19 +46,24 @@ const createElm = (show) => {
     const trigger = document.getElementsByClassName(".trigger");
     const closeButton = document.querySelector(".close-button");
 
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+        }
+    
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+
+    trigger.addEventListener("click", toggleModal);
+    closeButton.addEventListener("click", toggleModal);
+    window.addEventListener("click", windowOnClick);
+
 };
 
-function toggleModal() {
-    modal.classList.toggle("show-modal");
-    }
 
-function windowOnClick(event) {
-    if (event.target === modal) {
-        toggleModal();
-    }
-}
 
-trigger.addEventListener("click", toggleModal);
-closeButton.addEventListener("click", toggleModal);
-window.addEventListener("click", windowOnClick);
+
+
 
