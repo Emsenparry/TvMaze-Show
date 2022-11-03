@@ -1,0 +1,86 @@
+body{
+     font-family:"Akaya Telivigala", cursive ;
+     background-color:whitesmoke;
+     display: grid;
+}
+.container {
+     position: relative;
+     width: 100%;
+     height: 100%;
+     background-color:  #4B4453;
+}
+.title {
+     font-size: 30px;
+     color: black;
+}
+.nav-bar {
+     min-height: 70px;
+     background-color:  #B0A8B9;
+}
+li{
+     list-style: none;
+     margin-top: 2em;
+}
+
+a{
+     text-decoration: none;
+}
+.nav-manu {
+     display: flex;
+     font-size: 15px;
+     justify-content: flex-end;
+}
+.mini-header{
+     display: flex;
+     justify-content: flex-end;
+}
+.header-link{
+     padding: 0 2em;
+     color: #eeeeeb;  
+}
+.header-link:hover{
+     box-shadow: 0 14px 14px 0 #FFF;
+     cursor: pointer;
+ 
+} 
+.logo{
+    padding-top: 20px;
+    padding-left: 20px;
+    height: 50px;
+    width: 110px;
+}
+.nav-link {
+   color: black;
+   padding: 0 3em;
+}
+
+.nav-link:hover{
+     box-shadow: 0 14px 14px 0 #FFF;
+     cursor: pointer;
+ 
+} 
+ 
+.main-footer {
+     background-color: #B0A8B9;
+     padding: 1em;
+     box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.39);
+     -webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.39);
+     -moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.39);
+}
+
+.main-footer ul {
+     display: flex;
+     justify-content: space-evenly;
+}
+ 
+.main-footer ul li {
+     font-size: 1.2em;
+     color: black;
+     list-style: none;
+}
+
+.FB{
+     width: 85px;
+     height: 40px;
+     margin-top: 2em;
+}
