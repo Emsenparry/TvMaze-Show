@@ -10,7 +10,6 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    max-height: 100vh;
     .wrapper{
         flex: 0 0 100px;
         margin: 1em 1em 4em 1em;
@@ -22,7 +21,7 @@
             border: 3px solid #000;
         }
         h2{
-            color: rgb(197, 48, 48);
+            color: #E2DCE4;
             background-color: black;
         }
     }
@@ -43,7 +42,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: white;
+            background-color: #282339;
             padding: 1rem 1.5rem;
             width: 50%;
             border-radius: 0.5rem;
@@ -66,16 +65,18 @@
                 figcaption{
                     h2{
                         font-size: 2em;
+                        color: #E2DCE4;
                     }
                     h3{
                         margin-top: 1em;
+                        color: #E2DCE4;
                     }
                     p{
                         margin-top: 2em;
-                        // font-size: 1.15em;
+                        color: #E2DCE4;
                     }
                     span{
-                        color: aqua;
+                        color: #1874E0;
                         font-size: 1.3em;
                     }
                 }
