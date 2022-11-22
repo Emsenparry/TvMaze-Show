@@ -7,7 +7,8 @@ fetch('https://api.tvmaze.com/shows') //Fetcher vores API
 })
 .then((shows) => {
     console.log(shows); //Viser arrayet i vores console
-    ApiData = shows.slice(0, 12) //Vi slicer vores array til 12 i BROWSEREN da der er 240 shows i vores array 
+    ApiData = shows.slice(0, 12) //Vi slicer vores array til 12 
+    // i BROWSEREN da der er 240 shows i vores array 
 })
 .catch((error) => {
     console.error(error); //Hvis vores promise fejler, så catcher den en error
@@ -21,9 +22,13 @@ fetch('https://api.tvmaze.com/shows') //Fetcher vores API
 
 const createElm = (show) => { //Vi skaber innerhtml inde i vores sektion som hedder 'Content'.
 
-    //DOMParser har en funktion som hedder parseFromString, som tager en string og laver det om til et HTML element, så længe man giver den "text/html" som andet argument.
-    // parseFromString retunerer et HTMLDocument, ligesom document som der normalt bruges til at manipulere DOM'en.
-    // Elementerne (flere, da .wrapper og .modal ikke har en parent) gemmes i tempDocument, så elementerne kan bruges separat.
+    //DOMParser har en funktion som hedder parseFromString, 
+    // som tager en string og laver det om til et HTML element, så længe 
+    // man giver den "text/html" som andet argument.
+    // parseFromString retunerer et HTMLDocument, ligesom document som der 
+    // normalt bruges til at manipulere DOM'en.
+    // Elementerne (flere, da .wrapper og .modal ikke har en parent) 
+    // gemmes i tempDocument, så elementerne kan bruges separat.
     const tempDocument = new DOMParser().parseFromString(`
         <div class="wrapper">
             <img class="trigger" src="${show.image.original}">
